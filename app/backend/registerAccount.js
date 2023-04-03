@@ -3,7 +3,7 @@ import alert from "./Alert/web-ios-android-Alert";
 
 export const register = async(username, password, navigation) => {
     //TODO: Remove Later. This Is For Testing
-    await AsyncStorage.clear();
+    //await AsyncStorage.clear();
 
     username = username.trim();
     password = password.trim();

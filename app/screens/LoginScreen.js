@@ -42,9 +42,14 @@ const LoginScreen = ({navigation}) => {
 
 
 
+            {/*TODO: Removed For Testing*/}
             <Pressable style = {styles.loginButton} onPress={() => verify(username, password, navigation)}>
                 <Text style = {styles.text}>Log In</Text>
             </Pressable>
+
+            {/*<Pressable style = {styles.loginButton} onPress={() => verify("gurtejgrewal455@gmail.com", "2406FinalProject", navigation)}>
+                <Text style = {styles.text}>Log In</Text>
+            </Pressable>*/}
 
             <StatusBar style="auto" />
         </LinearGradient>
