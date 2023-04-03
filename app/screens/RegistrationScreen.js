@@ -4,10 +4,12 @@ import TextField from "../components/TextField";
 import {StatusBar} from "expo-status-bar";
 import {LinearGradient} from "expo-linear-gradient";
 import {register} from '../backend/registerAccount.js'
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const RegistrationScreen = ({navigation}) => {
     const [email, onChangeEmail] = React.useState('');
     const [password, onChangePassword] = React.useState('');
+
 
     return (
         <LinearGradient
@@ -35,6 +37,10 @@ const RegistrationScreen = ({navigation}) => {
                 secure = {true}
                 onChangeText = {onChangePassword}
             />
+
+            <Pressable onPress={() => navigation.navigate("Login")}>
+                <Text style = {styles.login}>Already Have An Account? Login!</Text>
+            </Pressable>
 
 
             <Pressable style = {styles.loginButton} onPress={() => register(email, password, navigation)}>
@@ -78,8 +84,9 @@ const styles = StyleSheet.create({
         letterSpacing: 0.25,
         color: 'white',
     },
-    register: {
+    login: {
         marginTop: 10,
         color: '#ADD8E6',
-    }
+    },
+
 });

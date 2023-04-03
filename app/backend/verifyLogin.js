@@ -6,10 +6,25 @@ export const verify = async(username, password, navigation) =>{
     password = password.trim();
     try {
         console.log("Verifying . . .")
-        const linkedPassword = await AsyncStorage.getItem(username);
+        let results = await AsyncStorage.getItem(username);
+        console.log(results)
+        let userDetails = JSON.parse(results);
+        console.log(userDetails)
+        if (userDetails.password !== null && userDetails.password === password) {
+            userDetails.isActive = true;
 
-        if (linkedPassword !== null && linkedPassword === password) {
-            navigation.navigate('Home')
+            AsyncStorage.getItem( 'user' )
+                .then( () => {
+                    userDetails.isActive = true;
+                    AsyncStorage.setItem( 'user', JSON.stringify( userDetails ) );
+                });
+
+
+            if(userDetails.isAdmin === true){
+                navigation.navigate('AdminPortal')
+            }else{
+                navigation.navigate('Home')
+            }
         } else {
             alert("Invalid username or password",
                 "The username or password you entered may be incorrect");

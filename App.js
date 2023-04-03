@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import LoginScreen from "./app/screens/LoginScreen";
 import RegistrationScreen from "./app/screens/RegistrationScreen";
 import HomeScreen from "./app/screens/HomeScreen";
+import AdminPortal from "./app/screens/AdminPortal";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {enableScreens} from "react-native-screens";
@@ -21,6 +22,7 @@ const App = ()  => {
                 <Stack.Screen name='Login' component={LoginScreen} />
                 <Stack.Screen options= {{headerLargeTitle: false}} name='Home' component={HomeScreen} />
                 <Stack.Screen name='Registration' component={RegistrationScreen} />
+                <Stack.Screen name='AdminPortal' component={AdminPortal}/>
             </Stack.Navigator>
         </NavigationContainer>
 
