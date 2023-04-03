@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import LoginScreen from "./app/screens/LoginScreen";
+import RegistrationScreen from "./app/screens/RegistrationScreen";
+import HomeScreen from "./app/screens/HomeScreen";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import {enableScreens} from "react-native-screens";
+enableScreens();
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+const App = ()  => {
+    return (
+
+        <NavigationContainer>
+            <Stack.Navigator screenOptions={{ headerShown: false }}>
+                <Stack.Screen name='Login' component={LoginScreen} />
+                <Stack.Screen options= {{headerLargeTitle: false}} name='Home' component={HomeScreen} />
+                <Stack.Screen name='Registration' component={RegistrationScreen} />
+            </Stack.Navigator>
+        </NavigationContainer>
+
+    );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+
+
+
