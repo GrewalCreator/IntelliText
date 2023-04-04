@@ -20,12 +20,12 @@ const App = ()  => {
     return (
 
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false }}>
-                <Stack.Screen name='Login' component={LoginScreen} />
-                <Stack.Screen options= {{headerLargeTitle: false}} name='Home' component={HomeScreen} />
-                <Stack.Screen name='Registration' component={RegistrationScreen} />
-                <Stack.Screen name='AdminPortal' component={AdminPortal}/>
-                <Stack.Screen name='DisplayUsers' component={DisplayUsersScreen}/>
+            <Stack.Navigator>
+                <Stack.Screen name='Login' options = {{ headerShown: false }} component={LoginScreen} />
+                <Stack.Screen name='Home' options= {{headerLargeTitle: false}} component={HomeScreen} />
+                <Stack.Screen name='Registration' options = {{ headerShown: false }} component={RegistrationScreen} />
+                <Stack.Screen name='AdminPortal' options = {{headerLargeTitle: false}} component={AdminPortal}/>
+                <Stack.Screen name='DisplayUsers' options = {{ headerShown: true}} component={DisplayUsersScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
 

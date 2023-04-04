@@ -3,7 +3,7 @@ import {Pressable, SafeAreaView, StyleSheet, Text} from "react-native";
 import TextField from "../components/TextField";
 import {StatusBar} from "expo-status-bar";
 import {LinearGradient} from "expo-linear-gradient";
-import {register} from '../backend/registerAccount.js'
+import {register} from '../scripts/registerAccount.js'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const RegistrationScreen = ({navigation}) => {
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     },
     setFontSizeLargest:{
         fontSize: 85,
+        color: 'white',
         fontWeight: 'bold',
         //fontFamily: 'Casino3D',
         marginTop: 100

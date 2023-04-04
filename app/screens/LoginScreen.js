@@ -4,7 +4,7 @@ import {Text, StyleSheet, Pressable} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 
 import TextField from '../components/TextField'
-import {verify} from '../backend/verifyLogin.js'
+import {verify} from '../scripts/verifyLogin.js'
 const LoginScreen = ({navigation}) => {
     const [username, onChangeUsername] = React.useState('');
     const [password, onChangePassword] = React.useState('');
@@ -41,7 +41,6 @@ const LoginScreen = ({navigation}) => {
             </Pressable>
 
 
-
             {/*TODO: Removed For Testing*/}
             <Pressable style = {styles.loginButton} onPress={() => verify(username, password, navigation)}>
                 <Text style = {styles.text}>Log In</Text>
@@ -70,6 +69,7 @@ const styles = StyleSheet.create({
     },
     setFontSizeLargest:{
         fontSize: 85,
+        color: 'white',
         fontWeight: 'bold',
         //fontFamily: 'Casino3D',
         marginTop: 100
