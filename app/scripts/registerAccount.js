@@ -2,18 +2,20 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import alert from "./Alert/web-ios-android-Alert";
 
 export const register = async(username, password, navigation) => {
-    //TODO: Remove Later. This Is For Testing
-    //await AsyncStorage.clear();
+    /*//TODO: Remove Later. This Is For Testing
+    await AsyncStorage.clear();*/
 
+    // Clean Up User Text
     username = username.trim();
     password = password.trim();
     try {
         let value = await AsyncStorage.getItem(username);
+
+        // Check If Username Doesn't Exist & Fields Are Not Blank
         if (value === null && username !== '' && password !== ''){
             try {
-                let isAdmin = (username === "gurtejgrewal455@gmail.com" && password === "2406FinalProject");
 
-                let userDetails = {email: username, password: password, isAdmin: isAdmin, isActive: false}
+                let userDetails = {email: username, password: password, accessLevel: "user", isActive: false}
 
                 await AsyncStorage.setItem(username, JSON.stringify(userDetails));
                 alert('Username and password saved successfully');

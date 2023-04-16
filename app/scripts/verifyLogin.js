@@ -2,36 +2,34 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import alert from "./Alert/web-ios-android-Alert";
 
 export const verify = async(username, password, navigation) =>{
+    //Clean Up Entered Info
     username = username.trim();
     password = password.trim();
     try {
-        console.log("Verifying . . .")
+        // Check If Account Exists
         let results = await AsyncStorage.getItem(username);
-        console.log(results)
         let userDetails = JSON.parse(results);
-        console.log(userDetails)
         if (userDetails.password !== null && userDetails.password === password) {
+
+            // Update Activity Status
             userDetails.isActive = true;
-
-            AsyncStorage.getItem( 'user' )
-                .then( () => {
-                    userDetails.isActive = true;
-                    AsyncStorage.setItem( 'user', JSON.stringify( userDetails ) );
-                });
+            await AsyncStorage.setItem(username, JSON.stringify(userDetails));
 
 
-            if(userDetails.isAdmin === true){
+            // Check Type of User Logging In
+            if(userDetails.accessLevel === "admin"){
                 navigation.navigate('AdminPortal')
-            }else{
-                navigation.navigate('Home')
+            }else if(userDetails.accessLevel === "dev"){
+                // navigation.navigate('EnhancedAdminPortal')
             }
-        } else {
-            alert("Invalid username or password",
-                "The username or password you entered may be incorrect");
-
+            else if(userDetails.accessLevel === "user"){
+                navigation.navigate('Home')
+            }else{
+                alert("Error Verifying Account")
+            }
         }
     } catch (error) {
-        alert("Error Verifying Login",
-            "Please Try Again In A Moment");
+        alert("Invalid username or password",
+            "The username or password you entered may be incorrect");
     }
 }
