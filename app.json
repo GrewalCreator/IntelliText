@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "IntelliText",
-    "slug": "IntelliText",
+    "slug": "intellitext",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,16 +15,24 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.grewalcreator.IntelliText"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.grewalcreator.IntelliText"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "aca9829f-8660-409a-9ea9-3c42a8d8416d"
+      }
+    },
+    "owner": "grewalcreator"
   }
 }

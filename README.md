@@ -9,7 +9,7 @@
 
 ### To Do
 - Implement Server and move features to be processed in backend (some listed below)
-- Transfer AsyncStorage Data to Private, encrypted Database
+- Transfer AsyncStorage Data to Private encrypted Database
 - Send Logs to a third party tool
 
 #

@@ -2,6 +2,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import alert from "./Alert/web-ios-android-Alert";
 
 export const verify = async(username, password, navigation) =>{
+
+    fetch('http://localhost:3000/login')
+        .catch(error => console.error(error));
+
+
     //Clean Up Entered Info
     username = username.trim();
     password = password.trim();
